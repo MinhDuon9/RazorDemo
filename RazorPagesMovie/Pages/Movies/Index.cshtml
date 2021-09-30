@@ -10,6 +10,17 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -43,6 +54,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
+            @*<td>
+                <a href="/Movies/Edit/1">Edit</a> |
+                <a href="/Movies/Details/1">Details</a> |
+                <a href="/Movies/Delete/1">Delete</a>
+            </td>*@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
